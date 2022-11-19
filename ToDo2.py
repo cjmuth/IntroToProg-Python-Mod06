@@ -84,7 +84,7 @@ class Processor:
         objFile = open(file_name, 'w')
         # Loop through dictionaries in table list
         for row in list_of_rows:
-            # Extract values, concantenate as string, write to text file
+            # Extract values, concatenate as string, write to text file
             objFile.write(row['Task'] + ',' + row['Priority'] + '\n')
         # Close text file
         objFile.close()
@@ -159,7 +159,7 @@ class IO:
         pass  # TODO: Add Code Here!
         # Get description of task to be removed
         task = input('\nWhich task do you want to remove? ')
-        # Pass the task descripion back to the main program
+        # Pass the task description back to the main program
         return task
 
 # Main Body of Script  ------------------------------------------------------ #
