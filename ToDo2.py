@@ -9,6 +9,8 @@
 # CMuth,11/16/2022,Modified code to complete assignment 06
 # ---------------------------------------------------------------------------- #
 
+from os.path import exists
+
 # Data ---------------------------------------------------------------------- #
 # Declare variables and constants
 file_name_str = "ToDoFile.txt"  # The name of the data file
@@ -30,14 +32,15 @@ class Processor:
         :param list_of_rows: (list) you want filled with file data:
         :return: (list) of dictionary rows
         """
-        list_of_rows.clear()  # clear current data
-        file = open(file_name, "r")
-        for line in file:
-            task, priority = line.split(",")
-            row = {"Task": task.strip(), "Priority": priority.strip()}
-            list_of_rows.append(row)
-        file.close()
-        return list_of_rows
+        if exists(file_name_str):
+            list_of_rows.clear()  # clear current data
+            file = open(file_name, "r")
+            for line in file:
+                task, priority = line.split(",")
+                row = {"Task": task.strip(), "Priority": priority.strip()}
+                list_of_rows.append(row)
+            file.close()
+            return list_of_rows
 
     @staticmethod
     def add_data_to_list(task, priority, list_of_rows):
